@@ -1,23 +1,39 @@
+% region <<Project setup>>
 \documentclass{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[spanish,english,brazilian]{babel} % For us this is very important. We need to use our wanted language packs
 
-\title{language-test}
-\author{franciscommcastro }
+\title{language-scripting-latex}
+\author{franciscommcastro}
 \date{April 2019}
+% end-region <<Project setup>>
 
-\newif\ifes\newif\ifen\newif\ifbr\brtrue%\input{document}
 
-\usepackage[spanish,english,brazilian]{babel}
+% region <<Script for our language commands>>
 
+% This is our scripting to set which language to use
+% It's important on compilation only
+% On interfaced editors, set this before compile
+% On terminal, just compile with this commands:
+% xelatex -jobname=<document-name> "<scripting line below> \input{document}"
+% Where referenced script line is:
+\newif\ifes\newif\ifen\newif\ifbr\brtrue
+% Change its last statements for what language you want
+% Ex.: \newif\ifes\newif\ifen\newif\ifbr\entrue (for english)
+
+% We need to create these commands to use in text and automatically set
 \newcommand{\langes}[1]{%
   \ifes\selectlanguage{spanish}#1\fi}
 \newcommand{\langen}[1]{%
   \ifen\selectlanguage{english}#1\fi}
 \newcommand{\langbr}[1]{%
   \ifbr\selectlanguage{brazilian}#1\fi}
+% end-region <<Script for our language commands>>
 
+
+% region <<Document>>
 \begin{document}
 
 \section{%
@@ -37,3 +53,4 @@ English typographic rules \textit{should} apply.}
 As regras tipográficas brasileiras \textit{devem} aplicar-se.}
 
 \end{document}
+%end-region <<Document>>
