@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\title{language-test}
+\author{franciscommcastro }
+\date{April 2019}
+
+\newif\ifes\newif\ifen\newif\ifbr\brtrue%\input{document}
+
+\usepackage[spanish,english,brazilian]{babel}
+
+\newcommand{\langes}[1]{%
+  \ifes\selectlanguage{spanish}#1\fi}
+\newcommand{\langen}[1]{%
+  \ifen\selectlanguage{english}#1\fi}
+\newcommand{\langbr}[1]{%
+  \ifbr\selectlanguage{brazilian}#1\fi}
+
+\begin{document}
+
+\section{%
+\langes{Hola!}
+\langen{Hello!}
+\langbr{Oi!}
+}
+
+\langes{Éste texto está en Español.\\
+las reglas tipográficas españolas
+\textit{deberían} aplicarse.}
+
+\langen{This is text in English.\\
+English typographic rules \textit{should} apply.}
+
+\langbr{Esse texto está em Português.\\
+As regras tipográficas brasileiras \textit{devem} aplicar-se.}
+
+\end{document}
